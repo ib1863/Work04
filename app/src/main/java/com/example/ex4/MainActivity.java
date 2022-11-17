@@ -19,17 +19,41 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner s;
     TextView tv, tv1, tv2, tv3;
     String[] classes = {"Choose Class:", "YodA1", "YodA2", "YodA3", "Yoda4"};
-    String[] class1 = {"Lebron James", "Stephen Curry", "Paolo Banchero", "Bol Bol", "Mohammed Bamba", "Zach Lavine", "Joel Embiid", "James Harden",
-        "Jalen Suggs", "Albert Levy"};
+    String[][] names = {{"Lebron", "Stephen", "Paolo", "Bol", "Mohammed", "Zach", "Joel", "James",
+        "Jalen", "Albert"},
+            {"Lionel", "Cristiano", "Wayne", "Marcus", "Kylian", "Erlind", "Maor",
+            "Tomer ", "Rotem ", "Albert"},
+            {"Dudu", "Hen", "Itay", "Itay", "Liad", "Ron", "Ravid", "Itay",
+            "Tamir", "Albert"},
+            {"Ben", "David", "Igor", "Roy", "Tadjin", "Halil",
+            "Joaquin", "Tomer", "Neta", "Albert"}};
 
-    String[] class2 = {"Lionel Messi", "Cristiano Ronaldo", "Wayne Ronney", "Marcus Rashford", "Kylian Mbappe", "Erlind Haaland", "Maor Melikson",
-    "Tomer Hemed", "Rotem Chatoel", "Albert Levy"};
+    String[][] familyNames = {{"James", "Curry", "Banchero", "Bol", "Bamba", "Lavine", "Embiid",
+            "Harden", "Suggs", "Levy"}, {"Messi", "Ronaldo", "Rooney", "Rashford",
+            "Mbappe", "Haaland", "Melikson", "Hemed", "Chatoel", "Levy"},
+            {"Faruk", "Porati", "Lukach", "Peled", "Meir", "Nesher", "Plotnik",
+                    "Zvulun", "Bar", "Levy"},
+            {"Moore", "Afieny", "Kulshov", "Paritzki", "Keita", "Ahmed",
+                    "Schuchman", "Porat", "Segal", "Levy"}};
 
-    String[] class3 = {"Dudu Faruk", "Hen Porati", "Itay Lukach", "Itay Peled", "Liad Meir", "Ron Nesher", "Ravid Plotnik", "Itay Zvulun",
-    "Tamir Bar", "Albert Levy"};
+    String[][] phoneNum = {{"0544771601", "0544771602", "0544771603", "0544771604",
+            "0544771605", "0544771606", "0544771607", "0544771608", "05447716089", "0544771610"},
+            {"0544771611", "0544771612", "0544771613", "0544771614", "0544771615", "0544771616", "0544771617",
+                    "0544771618", "0544771619", "0544771620"},
+            {"0544771621", "0544771622", "0544771623", "0544771624", "0544771625", "0544771626", "0544771627",
+                    "0544771628", "0544771629", "0544771630"},
+            {"0544771631", "0544771632", "0544771633", "0544771634", "0544771635", "0544771636", "0544771637",
+                    "0544771638", "0544771639", "0544771640"}};
 
-    String[] class4 = {"Ben Moore", "David Afieny", "Igor Kulshov", "Roy Paritzki", "Tadjin Keita", "Halil Ahmed",
-    "Joaquin Schuchman", "Tomer Porat", "Neta Segal", "Albert Levy"};
+    String[][] birthDay = {{"1/1/2006", "2/1/2006", "3/1/2006", "4/1/2006", "5/1/2006", "6/1/2006", "7/1/2006", "8/1/2006",
+            "9/1/2006", "10/1/2006"},
+            {"1/2/2006", "2/2/2006", "3/2/2006", "4/2/2006", "5/2/2006", "6/2/2006", "7/2/2006", "8/2/2006",
+                    "9/2/2006", "10/2/2006"},
+            {"1/3/2006", "2/3/2006", "3/3/2006", "4/3/2006", "5/3/2006", "6/3/2006", "7/3/2006", "8/3/2006",
+                    "9/3/2006", "10/3/2006"},
+            {"1/4/2006", "2/4/2006", "3/4/2006", "4/4/2006", "5/4/2006", "6/4/2006", "7/4/2006", "8/4/2006",
+                    "9/4/2006", "10/4/2006"}};
+
 
 
     @Override
@@ -58,34 +82,37 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        System.out.println(i);
         switch (i)
         {
             case 0:
                 Toast.makeText(MainActivity.this, "Please choose a class", Toast.LENGTH_SHORT).show();
                 lv.setAdapter(null);
+                tv.setText("");
+                tv1.setText("");
+                tv2.setText("");
+                tv3.setText("");
                 break;
             case 1:
                 ArrayAdapter<String> adp1 = new ArrayAdapter<String>(this,
-                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, class1);
+                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, names[0]);
                 lv.setAdapter(adp1);
                 classNum = 1;
                 break;
             case 2:
                 ArrayAdapter<String> adp2 = new ArrayAdapter<String>(this,
-                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, class2);
+                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, names[1]);
                 lv.setAdapter(adp2);
                 classNum = 2;
                 break;
             case 3:
                 ArrayAdapter<String> adp3 = new ArrayAdapter<String>(this,
-                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, class3);
+                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, names[2]);
                 lv.setAdapter(adp3);
                 classNum = 3;
                 break;
             case 4:
                 ArrayAdapter<String> adp4 = new ArrayAdapter<String>(this,
-                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, class4);
+                        androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, names[3]);
                 lv.setAdapter(adp4);
                 classNum = 4;
                 break;
@@ -102,41 +129,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        int index;
-        Random rand = new Random();
-        int day = 20, month = 0, year = 2006;
-
-
-        System.out.println(classNum);
-
         switch(classNum) {
             case 1:
-                index = class1[i].indexOf(' ');
-                tv.setText(class1[i].substring(index, class1[i].length()));
-                tv1.setText(class1[i].substring(0, index));
-                tv2.setText(Integer.toString(day + i + 1) + "/" + Integer.toString(month + i + 1) + "/2006");
-                tv3.setText("05449087" + Integer.toString(i));
+                tv.setText(names[0][i]);
+                tv1.setText(familyNames[0][i]);
+                tv2.setText(birthDay[0][i]);
+                tv3.setText(phoneNum[0][i]);
                 break;
             case 2:
-                index = class2[i].indexOf(' ');
-                tv.setText(class2[i].substring(index, class2[i].length()));
-                tv1.setText(class2[i].substring(0, index));
-                tv2.setText(Integer.toString(day + i + 2) + "/" + Integer.toString(month + i + 1) + "/2006");
-                tv3.setText("0544908" + Integer.toString(i) + "0");
+                tv.setText(names[1][i]);
+                tv1.setText(familyNames[1][i]);
+                tv2.setText(birthDay[1][i]);
+                tv3.setText(phoneNum[1][i]);
                 break;
             case 3:
-                index = class3[i].indexOf(' ');
-                tv.setText(class3[i].substring(index, class3[i].length()));
-                tv1.setText(class3[i].substring(0, index));
-                tv2.setText(Integer.toString(day + i) + "/" + Integer.toString(month + i + 2) + "/2006");
-                tv3.setText("0544908" + Integer.toString(i) + "1");
+                tv.setText(names[2][i]);
+                tv1.setText(familyNames[2][i]);
+                tv2.setText(birthDay[2][i]);
+                tv3.setText(phoneNum[2][i]);
                 break;
             case 4:
-                index = class4[i].indexOf(' ');
-                tv.setText(class4[i].substring(index, class4[i].length()));
-                tv1.setText(class4[i].substring(0, index));
-                tv2.setText(Integer.toString(day + i + 1) + "/" + Integer.toString(month + i + 2) + "/2006");
-                tv3.setText("0544908" + Integer.toString(i) + "2");
+                tv.setText(names[3][i]);
+                tv1.setText(familyNames[3][i]);
+                tv2.setText(birthDay[3][i]);
+                tv3.setText(phoneNum[3][i]);
                 break;
         }
 
